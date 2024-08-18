@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pingan.cpip.mapper.vip.PajfPermissionLogMapper">
+
+    <resultMap id="BaseResultMap" type="com.pingan.cpip.vip.entity.PajfPermissionLog">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="pajfPermissionId" column="pajf_permission_id" jdbcType="BIGINT"/>
+            <result property="customerUserId" column="customer_user_id" jdbcType="BIGINT"/>
+            <result property="sceneId" column="scene_id" jdbcType="BIGINT"/>
+            <result property="sceneCode" column="scene_code" jdbcType="VARCHAR"/>
+            <result property="scenePolicyId" column="scene_policy_id" jdbcType="BIGINT"/>
+            <result property="scenePolicyVersion" column="scene_policy_version" jdbcType="VARCHAR"/>
+            <result property="acceptedBasePolicyIds" column="accepted_base_policy ids" jdbcType="VARCHAR"/>
+            <result property="basePolicyPublishedIds" column="base_policy_published_ids" jdbcType="VARCHAR"/>
+            <result property="channelCode" column="channel_code" jdbcType="VARCHAR"/>
+            <result property="actionTime" column="action_time" jdbcType="TIMESTAMP"/>
+            <result property="authTime" column="auth_time" jdbcType="TIMESTAMP"/>
+            <result property="memo" column="memo" jdbcType="VARCHAR"/>
+            <result property="createdBy" column="created_by" jdbcType="VARCHAR"/>
+            <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+            <result property="updatedBy" column="updated_by" jdbcType="VARCHAR"/>
+            <result property="updatedTime" column="updated_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,pajf_permission_id,customer_user_id,
+        scene_id,scene_code,scene_policy_id,
+        scene_policy_version,accepted_base_policy ids,base_policy_published_ids,
+        channel_code,action_time,auth_time,
+        memo,created_by,created_time,
+        updated_by,updated_time
+    </sql>
+    <insert id="insertSelective">
+        insert into pajf_permission_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="pajfPermissionId != null">pajf_permission_id,</if>
+            <if test="customerUserId != null">customer_user_id,</if>
+            <if test="sceneId != null">scene_id,</if>
+            <if test="sceneCode != null">scene_code,</if>
+            <if test="scenePolicyId != null">scene_policy_id,</if>
+            <if test="scenePolicyVersion != null">scene_policy_version,</if>
+            <if test="acceptedBasePolicyIds != null">accepted_base_policy ids,</if>
+            <if test="basePolicyPublishedIds != null">base_policy_published_ids,</if>
+            <if test="channelCode != null">channel_code,</if>
+            <if test="actionTime != null">action_time,</if>
+            <if test="authTime != null">auth_time,</if>
+            <if test="memo != null">memo,</if>
+            <if test="createdBy != null">created_by,</if>
+            <if test="createdTime != null">created_time,</if>
+            <if test="updatedBy != null">updated_by,</if>
+            <if test="updatedTime != null">updated_time,</if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id,jdbcType=BIGINT},</if>
+            <if test="pajfPermissionId != null">#{pajfPermissionId,jdbcType=BIGINT},</if>
+            <if test="customerUserId != null">#{customerUserId,jdbcType=BIGINT},</if>
+            <if test="sceneId != null">#{sceneId,jdbcType=BIGINT},</if>
+            <if test="sceneCode != null">#{sceneCode,jdbcType=VARCHAR},</if>
+            <if test="scenePolicyId != null">#{scenePolicyId,jdbcType=BIGINT},</if>
+            <if test="scenePolicyVersion != null">#{scenePolicyVersion,jdbcType=VARCHAR},</if>
+            <if test="acceptedBasePolicyIds != null">#{acceptedBasePolicyIds,jdbcType=VARCHAR},</if>
+            <if test="basePolicyPublishedIds != null">#{basePolicyPublishedIds,jdbcType=VARCHAR},</if>
+            <if test="channelCode != null">#{channelCode,jdbcType=VARCHAR},</if>
+            <if test="actionTime != null">#{actionTime,jdbcType=TIMESTAMP},</if>
+            <if test="authTime != null">#{authTime,jdbcType=TIMESTAMP},</if>
+            <if test="memo != null">#{memo,jdbcType=VARCHAR},</if>
+            <if test="createdBy != null">#{createdBy,jdbcType=VARCHAR},</if>
+            <if test="createdTime != null">#{createdTime,jdbcType=TIMESTAMP},</if>
+            <if test="updatedBy != null">#{updatedBy,jdbcType=VARCHAR},</if>
+            <if test="updatedTime != null">#{updatedTime,jdbcType=TIMESTAMP},</if>
+        </trim>
+    </insert>
+</mapper>

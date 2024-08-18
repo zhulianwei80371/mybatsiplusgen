@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pingan.cpip.mapper.vip.PajfPermissionMapper">
+
+    <resultMap id="BaseResultMap" type="com.ping.cpip.vip.entity.PajfPermission">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="customerUserId" column="customer_user_id" jdbcType="BIGINT"/>
+            <result property="sceneId" column="scene_id" jdbcType="BIGINT"/>
+            <result property="sceneCode" column="scene_code" jdbcType="VARCHAR"/>
+            <result property="scenePolicyId" column="scene_policy_id" jdbcType="BIGINT"/>
+            <result property="scenePolicyVersion" column="scene_policy_version" jdbcType="VARCHAR"/>
+            <result property="acceptedBasePolicyIds" column="accepted_base_policy_ids" jdbcType="VARCHAR"/>
+            <result property="channelCode" column="channel_code" jdbcType="VARCHAR"/>
+            <result property="appChannelCode" column="app_channel_code" jdbcType="VARCHAR"/>
+            <result property="actionTime" column="action_time" jdbcType="TIMESTAMP"/>
+            <result property="memo" column="memo" jdbcType="VARCHAR"/>
+            <result property="errCode" column="err_code" jdbcType="VARCHAR"/>
+            <result property="errMsg" column="err_msg" jdbcType="VARCHAR"/>
+            <result property="responseCode" column="response_code" jdbcType="VARCHAR"/>
+            <result property="responseMsg" column="response_msg" jdbcType="VARCHAR"/>
+            <result property="createdBy" column="created_by" jdbcType="VARCHAR"/>
+            <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+            <result property="updatedBy" column="updated_by" jdbcType="VARCHAR"/>
+            <result property="updatedTime" column="updated_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,customer_user_id,scene_id,
+        scene_code,scene_policy_id,scene_policy_version,
+        accepted_base_policy_ids,channel_code,app_channel_code,
+        action_time,memo,err_code,
+        err_msg,response_code,response_msg,
+        created_by,created_time,updated_by,
+        updated_time
+    </sql>
+    <insert id="insertSelective">
+        insert into pajf_permission
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="customerUserId != null">customer_user_id,</if>
+            <if test="sceneId != null">scene_id,</if>
+            <if test="sceneCode != null">scene_code,</if>
+            <if test="scenePolicyId != null">scene_policy_id,</if>
+            <if test="scenePolicyVersion != null">scene_policy_version,</if>
+            <if test="acceptedBasePolicyIds != null">accepted_base_policy_ids,</if>
+            <if test="channelCode != null">channel_code,</if>
+            <if test="appChannelCode != null">app_channel_code,</if>
+            <if test="actionTime != null">action_time,</if>
+            <if test="memo != null">memo,</if>
+            <if test="errCode != null">err_code,</if>
+            <if test="errMsg != null">err_msg,</if>
+            <if test="responseCode != null">response_code,</if>
+            <if test="responseMsg != null">response_msg,</if>
+            <if test="createdBy != null">created_by,</if>
+            <if test="createdTime != null">created_time,</if>
+            <if test="updatedBy != null">updated_by,</if>
+            <if test="updatedTime != null">updated_time,</if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id,jdbcType=BIGINT},</if>
+            <if test="customerUserId != null">#{customerUserId,jdbcType=BIGINT},</if>
+            <if test="sceneId != null">#{sceneId,jdbcType=BIGINT},</if>
+            <if test="sceneCode != null">#{sceneCode,jdbcType=VARCHAR},</if>
+            <if test="scenePolicyId != null">#{scenePolicyId,jdbcType=BIGINT},</if>
+            <if test="scenePolicyVersion != null">#{scenePolicyVersion,jdbcType=VARCHAR},</if>
+            <if test="acceptedBasePolicyIds != null">#{acceptedBasePolicyIds,jdbcType=VARCHAR},</if>
+            <if test="channelCode != null">#{channelCode,jdbcType=VARCHAR},</if>
+            <if test="appChannelCode != null">#{appChannelCode,jdbcType=VARCHAR},</if>
+            <if test="actionTime != null">#{actionTime,jdbcType=TIMESTAMP},</if>
+            <if test="memo != null">#{memo,jdbcType=VARCHAR},</if>
+            <if test="errCode != null">#{errCode,jdbcType=VARCHAR},</if>
+            <if test="errMsg != null">#{errMsg,jdbcType=VARCHAR},</if>
+            <if test="responseCode != null">#{responseCode,jdbcType=VARCHAR},</if>
+            <if test="responseMsg != null">#{responseMsg,jdbcType=VARCHAR},</if>
+            <if test="createdBy != null">#{createdBy,jdbcType=VARCHAR},</if>
+            <if test="createdTime != null">#{createdTime,jdbcType=TIMESTAMP},</if>
+            <if test="updatedBy != null">#{updatedBy,jdbcType=VARCHAR},</if>
+            <if test="updatedTime != null">#{updatedTime,jdbcType=TIMESTAMP},</if>
+        </trim>
+    </insert>
+    <delete id="deleteById">
+        delete
+        from pajf_permission
+        where id = #{id,jdbcType=NUMERIC}
+    </delete>
+</mapper>
